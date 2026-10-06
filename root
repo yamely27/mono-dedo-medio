@@ -1,0 +1,353 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>😈 Sorpresa</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #ffd166 0%,
+                    #ff7b7b 40%,
+                    #7b1e4d 100%
+                );
+
+            color: white;
+        }
+
+        .contenedor {
+            width: 92%;
+            max-width: 700px;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            background: rgba(0, 0, 0, 0.35);
+
+            border: 2px solid rgba(255, 255, 255, 0.35);
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.4);
+
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: clamp(1rem, 4vw, 1.4rem);
+            margin-bottom: 30px;
+        }
+
+        button {
+            border: none;
+
+            padding: 16px 32px;
+
+            border-radius: 50px;
+
+            background: white;
+            color: #7b1e4d;
+
+            font-size: 1.1rem;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        #sorpresa {
+            display: none;
+        }
+
+        .mono {
+            width: min(80vw, 430px);
+            max-height: 430px;
+
+            margin: 10px auto;
+
+            display: block;
+
+            animation: movimiento 0.6s infinite alternate;
+        }
+
+        @keyframes movimiento {
+            from {
+                transform: rotate(-2deg);
+            }
+
+            to {
+                transform: rotate(2deg);
+            }
+        }
+
+        .mensaje {
+            font-size: clamp(1.5rem, 6vw, 3rem);
+            font-weight: bold;
+
+            margin-top: 10px;
+        }
+
+        .emoji {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 500px) {
+
+            .contenedor {
+                padding: 25px 15px;
+            }
+
+            .mono {
+                width: 90vw;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- PANTALLA INICIAL -->
+        <div id="inicio">
+
+            <div class="emoji">😈</div>
+
+            <h1>
+                ¡Tienes una sorpresa!
+            </h1>
+
+            <p>
+                Presiona el botón si te atreves...
+            </p>
+
+            <button onclick="mostrarSorpresa()">
+                DESCUBRIR
+            </button>
+
+        </div>
+
+
+        <!-- SORPRESA -->
+        <div id="sorpresa">
+
+            <h1>
+                🐒 ¡SORPRESA!
+            </h1>
+
+
+            <!-- MONO DIBUJADO EN SVG -->
+            <svg
+                class="mono"
+                viewBox="0 0 800 800"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+
+                <!-- CABEZA -->
+                <circle
+                    cx="400"
+                    cy="365"
+                    r="205"
+                    fill="#8b5a2b"
+                    stroke="#3f2815"
+                    stroke-width="14"
+                />
+
+                <!-- OREJA IZQUIERDA -->
+                <circle
+                    cx="230"
+                    cy="280"
+                    r="75"
+                    fill="#a96f38"
+                    stroke="#3f2815"
+                    stroke-width="14"
+                />
+
+                <!-- OREJA DERECHA -->
+                <circle
+                    cx="570"
+                    cy="280"
+                    r="75"
+                    fill="#a96f38"
+                    stroke="#3f2815"
+                    stroke-width="14"
+                />
+
+                <circle
+                    cx="230"
+                    cy="280"
+                    r="38"
+                    fill="#f0c58a"
+                />
+
+                <circle
+                    cx="570"
+                    cy="280"
+                    r="38"
+                    fill="#f0c58a"
+                />
+
+
+                <!-- CARA -->
+                <ellipse
+                    cx="400"
+                    cy="430"
+                    rx="125"
+                    ry="100"
+                    fill="#c8894b"
+                    stroke="#3f2815"
+                    stroke-width="12"
+                />
+
+
+                <!-- OJOS -->
+                <circle
+                    cx="335"
+                    cy="350"
+                    r="25"
+                    fill="#111"
+                />
+
+                <circle
+                    cx="465"
+                    cy="350"
+                    r="25"
+                    fill="#111"
+                />
+
+
+                <!-- SONRISA -->
+                <path
+                    d="M325 470 Q400 525 475 470"
+                    fill="none"
+                    stroke="#111"
+                    stroke-width="16"
+                    stroke-linecap="round"
+                />
+
+
+                <!-- BRAZO -->
+                <path
+                    d="
+                    M295 610
+                    Q330 560 365 535
+                    Q390 518 405 545
+                    Q420 570 395 590
+                    L350 625
+                    Q325 650 295 610Z
+                    "
+                    fill="#8b5a2b"
+                    stroke="#3f2815"
+                    stroke-width="14"
+                />
+
+
+                <!-- MANO -->
+                <path
+                    d="
+                    M350 625
+                    Q330 600 345 580
+                    Q360 560 382 575
+
+                    L390 475
+                    Q394 440 418 442
+                    Q442 444 441 478
+
+                    L438 560
+
+                    L452 510
+                    Q458 485 480 492
+                    Q502 500 494 527
+
+                    L480 575
+
+                    L500 540
+                    Q514 518 532 531
+                    Q548 544 535 567
+
+                    L510 610
+
+                    Q490 645 450 660
+                    Q390 680 350 625Z
+                    "
+                    fill="#a96f38"
+                    stroke="#3f2815"
+                    stroke-width="14"
+                />
+
+
+                <!-- DEDO MEDIO -->
+                <path
+                    d="
+                    M390 575
+                    L390 475
+                    Q394 440 418 442
+                    Q442 444 441 478
+                    L438 575
+                    Z
+                    "
+                    fill="#b9783c"
+                    stroke="#3f2815"
+                    stroke-width="12"
+                />
+
+            </svg>
+
+
+            <div class="mensaje">
+                🖕 JAJAJA, ¡CAÍSTE! 😂
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function mostrarSorpresa() {
+
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("sorpresa").style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
